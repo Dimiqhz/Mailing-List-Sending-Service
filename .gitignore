@@ -1,0 +1,5 @@
+/venv
+/email_service/*.pyc
+/mailing/*.pyc
+/subscribers/*.pyc
+/subscribers/migrations/
