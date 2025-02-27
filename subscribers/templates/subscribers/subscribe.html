@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Подписка на рассылку</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      padding-top: 50px;
+    }
+    .subscribe-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+    }
+    .form-group label {
+      font-weight: bold;
+    }
+    .btn-primary {
+      background-color: #337ab7;
+      border-color: #2e6da4;
+    }
+    .btn-primary:hover {
+      background-color: #286090;
+      border-color: #204d74;
+    }
+  </style>
+  <div class="container">
+    <div class="subscribe-container">
+      <h1 class="text-center">Подписка на рассылку</h1>
+      <p class="text-center">Пожалуйста, заполните форму для получения наших новостей и обновлений.</p>
+      <form method="post" class="form-horizontal">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_first_name" class="col-sm-4 control-label">Имя</label>
+          <div class="col-sm-8">
+            {{ form.first_name }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_last_name" class="col-sm-4 control-label">Фамилия</label>
+          <div class="col-sm-8">
+            {{ form.last_name }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_email" class="col-sm-4 control-label">Email</label>
+          <div class="col-sm-8">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_birthday" class="col-sm-4 control-label">Дата рождения</label>
+          <div class="col-sm-8">
+            {{ form.birthday }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-lg">Подписаться</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

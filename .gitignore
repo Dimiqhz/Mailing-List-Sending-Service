@@ -3,3 +3,5 @@
 /mailing/*.pyc
 /subscribers/*.pyc
 /subscribers/migrations/
+/mailing/migrations/
+/*.sqlite3

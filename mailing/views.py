@@ -5,7 +5,7 @@ from mailing.forms import EmailCampaignForm
 from mailing.models import EmailCampaign, EmailLog
 from django.utils import timezone
 
-def create_mailing(request):
+def create_campaign(request):
     """
     Представление для создания кампании рассылки через AJAX
     
@@ -23,7 +23,7 @@ def create_mailing(request):
             return JsonResponse({'status': 'error', 'errors': form.errors})
     else:
         form = EmailCampaignForm()
-    return render(request, 'mailing/create_mailing.html', {'form': form})
+    return render(request, 'mailing/create_campaign.html', {'form': form})
 
 def tracking_pixel(request, campaign_id, subscriber_email):
     """
@@ -47,3 +47,17 @@ def tracking_pixel(request, campaign_id, subscriber_email):
         "\x00\x02\x02D\x01\x00;"
     )
     return HttpResponse(transparent_pixel, content_type="image/gif")
+
+def campaign_list(request):
+    """
+    Представление для отображения списка кампаний рассылки.
+    """
+    campaigns = EmailCampaign.objects.all().order_by('-created_at')
+    return render(request, 'mailing/campaign_list.html', {'campaigns': campaigns})
+
+def email_logs(request):
+    """
+    Представление для отображения логов открытий писем.
+    """
+    logs = EmailLog.objects.all().order_by('-open_time')
+    return render(request, 'mailing/email_logs.html', {'logs': logs})

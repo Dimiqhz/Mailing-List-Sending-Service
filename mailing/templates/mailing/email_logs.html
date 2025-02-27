@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Логи открытий писем</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { padding-top: 20px; }
+    .container { max-width: 900px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Логи открытий писем</h1>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email подписчика</th>
+          <th>Кампания</th>
+          <th>Дата открытия</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+          <tr>
+            <td>{{ log.id }}</td>
+            <td>{{ log.subscriber_email }}</td>
+            <td>{{ log.campaign.subject }}</td>
+            <td>{{ log.open_time }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" class="text-center">Нет логов</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url 'campaign_list' %}" class="btn btn-primary">Вернуться к кампаниям</a>
+  </div>
+</body>
+</html>

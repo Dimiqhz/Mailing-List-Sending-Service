@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Отписка от рассылки</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { padding-top: 50px; }
+    .container { max-width: 600px; }
+  </style>
+</head>
+<body>
+  <div class="container text-center">
+    <h1>Вы уверены, что хотите отписаться?</h1>
+    <p>Вы больше не будете получать письма на адрес <strong>{{ email }}</strong>.</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Отписаться</button>
+      <a href="/" class="btn btn-default">Оставаться в подписке</a>
+    </form>
+  </div>
+</body>
+</html>
