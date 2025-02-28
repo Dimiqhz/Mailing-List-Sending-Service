@@ -17,7 +17,10 @@ def create_campaign(request):
         if form.is_valid():
             campaign = form.save()
             from mailing.tasks import send_email_campaign
-            send_email_campaign.delay(campaign.id)
+            if campaign.scheduled_time > timezone.now():
+                send_email_campaign.apply_async(args=[campaign.id], eta=campaign.scheduled_time)
+            else:
+                send_email_campaign.delay(campaign.id)
             return JsonResponse({'status': 'ok', 'campaign_id': campaign.id})
         else:
             return JsonResponse({'status': 'error', 'errors': form.errors})
