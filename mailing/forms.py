@@ -6,9 +6,9 @@ from django.utils import timezone
 
 class EmailCampaignForm(forms.ModelForm):
     """
-    Форма для создания кампании рассылки
+    Form for creating a mailing campaign
     
-    Поля: subject, body_html, scheduled_time
+    Fields: subject, body_html, scheduled_time
     """
     class Meta:
         model = EmailCampaign

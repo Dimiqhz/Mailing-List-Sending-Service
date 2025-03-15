@@ -3,13 +3,13 @@ from django.db import models
 
 class Subscriber(models.Model):
     """
-    Модель подписчика
+    Subscriber Model
     
-    Поля:
-      first_name (str): имя подписчика
-      last_name (str): фамилия подписчика
-      email (str): адрес электронной почты подписчика
-      birthday (date): дата рождения подписчика
+    Fields:
+      first_name (str): subscriber's first name
+      last_name (str): subscriber's last name
+      email (str): subscriber's email address
+      birthday (date): subscriber's date of birth
     """
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

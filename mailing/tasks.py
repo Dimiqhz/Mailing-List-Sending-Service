@@ -11,14 +11,14 @@ import logging
 @task
 def send_email_campaign(campaign_id):
     """
-    Задача Celery для отправки рассылки
+    Celery task for sending a newsletter
 
-    Получает кампанию по id, рендерит HTML-макет с переменными для каждого активного подписчика,
-    добавляет ссылку для отписки и отправляет email. 
+    Gets campaign by id, renders HTML layout with variables for each active subscriber,
+    adds an unsubscribe link and sends an email. 
     
-    В случае ошибок логирует их
+    Logs errors in case of errors
 
-    :param campaign_id: int - идентификатор кампании рассылки
+    :param campaign_id: int - mailing campaign id
     """
     try:
         campaign = EmailCampaign.objects.get(id=campaign_id)

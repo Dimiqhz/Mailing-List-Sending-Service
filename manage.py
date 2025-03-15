@@ -13,7 +13,7 @@ if __name__ == "__main__":
             import django
         except ImportError:
             raise ImportError(
-                "Не удалось импортировать Django. Убедитесь, что он установлен и доступен в PYTHONPATH."
+                "Couldn't import Django. Make sure it is installed and available in PYTHONPATH."
             )
         raise
     execute_from_command_line(sys.argv)

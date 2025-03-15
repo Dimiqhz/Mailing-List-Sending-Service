@@ -5,16 +5,16 @@ from subscribers.forms import SubscriberForm
 
 def subscriber_list(request):
     """
-    Представление для отображения списка подписчиков
+    View for displaying the list of subscribers
     """
     subscribers = Subscriber.objects.all()
     return render(request, 'subscribers/subscriber_list.html', {'subscribers': subscribers})
 
 def subscribe(request):
     """
-    Представление для обработки подписки пользователя
-    При GET-запросе отображается форма подписки,
-    при POST-запросе данные формы сохраняются, и показывается страница с подтверждением
+    View for processing user subscriptions
+    A GET request displays the subscription form,
+    POST request saves the form data and displays the confirmation page.
     """
     if request.method == "POST":
         form = SubscriberForm(request.POST)
@@ -27,7 +27,7 @@ def subscribe(request):
 
 def unsubscribe(request, email):
     """
-    Представление для отписки подписчика от рассылки
+    Submission to unsubscribe a subscriber from the mailing list
     """
     subscriber = get_object_or_404(Subscriber, email=email)
     if request.method == "POST":

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Список кампаний рассылки</title>
+  <title>Mailing list of companies</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>
     body { padding-top: 20px; }
@@ -11,15 +11,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>Кампании рассылки</h1>
+    <h1>Mailing campaigns</h1>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Тема</th>
-          <th>Дата создания</th>
-          <th>Время отправки</th>
-          <th>Статус</th>
+          <th>Subject</th>
+          <th>Date of Creation</th>
+          <th>Dispatch time</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -29,16 +29,16 @@
             <td>{{ campaign.subject }}</td>
             <td>{{ campaign.created_at }}</td>
             <td>{{ campaign.scheduled_time }}</td>
-            <td>{% if campaign.is_sent %}Отправлена{% else %}В ожидании{% endif %}</td>
+            <td>{% if campaign.is_sent %}Sent{% else %}Pending{% endif %}</td>
           </tr>
         {% empty %}
           <tr>
-            <td colspan="5" class="text-center">Нет кампаний</td>
+            <td colspan="5" class="text-center">There are no companies</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
-    <a href="{% url 'create_campaign' %}" class="btn btn-primary">Создать новую кампанию</a>
+    <a href="{% url 'create_campaign' %}" class="btn btn-primary">Create a new company</a>
   </div>
 </body>
 </html>

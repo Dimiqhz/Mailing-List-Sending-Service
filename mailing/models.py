@@ -4,14 +4,14 @@ from django.utils import timezone
 
 class EmailCampaign(models.Model):
     """
-    Модель, описывающая кампанию рассылки.
+    A model describing a mailing campaign.
     
-    Поля:
-      subject (str): тема письма.
-      body_html (str): HTML-шаблон письма, в котором могут использоваться переменные (например, {{ first_name }})
-      scheduled_time (datetime): время, запланированное для отправки
-      is_sent (bool): флаг, указывающий, отправлена ли рассылка
-      created_at (datetime): время создания кампании
+    Fields:
+      subject (str): subject of the email.
+      body_html (str): The HTML template of the email, which may use variables (e.g. {{ first_name }})
+      scheduled_time (datetime): the time scheduled to be sent.
+      is_sent (bool): flag indicating whether the mailing has been sent or not
+      created_at (datetime): time when the campaign was created
     """
     subject = models.CharField(max_length=255)
     body_html = models.TextField()

@@ -5,9 +5,9 @@ import bleach
 
 class SubscriberForm(forms.ModelForm):
     """
-    Форма для подписки на рассылку
+    Newsletter subscription form
     
-    Поля: имя, фамилия, email, дата рождения
+    Fields: first name, last name, email, date of birth
     """
     class Meta:
         model = Subscriber

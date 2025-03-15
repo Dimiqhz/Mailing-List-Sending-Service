@@ -19,10 +19,10 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="text-center">Создание кампании рассылки</h1>
+    <h1 class="text-center">Creating a mailing campaign</h1>
     <div class="text-center" style="margin: 30px 0;">
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#campaignModal">
-        Создать новую рассылку
+        Create a new newsletter
       </button>
     </div>
     <div id="campaignResult" class="alert" style="display: none;"></div>
@@ -38,19 +38,19 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="campaignModalLabel">Новая кампания рассылки</h4>
+            <h4 class="modal-title" id="campaignModalLabel">New mailing campaign</h4>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="id_subject">Тема письма</label>
+              <label for="id_subject">Subject line</label>
               <input type="text" class="form-control" id="id_subject" name="subject" placeholder="Введите тему письма" required>
             </div>
             <div class="form-group">
-              <label for="id_body_html">HTML-макет письма</label>
+              <label for="id_body_html">HTML layout of the letter</label>
               <textarea class="form-control" id="id_body_html" name="body_html" rows="5" placeholder="Введите HTML макет письма" required></textarea>
             </div>
             <div class="form-group">
-              <label for="id_scheduled_time">Время отправки</label>
+              <label for="id_scheduled_time">Dispatch time</label>
               <div class='input-group date' id='datetimepicker'>
                 <input type="text" class="form-control" id="id_scheduled_time" name="scheduled_time" placeholder="YYYY-MM-DD HH:mm:ss" required/>
                 <span class="input-group-addon">
@@ -59,14 +59,14 @@
               </div>
             </div>
             <p class="text-muted">
-              Пример переменных: <code>{% templatetag openvariable %} first_name {% templatetag closevariable %}</code>, 
+              Example of variables: <code>{% templatetag openvariable %} first_name {% templatetag closevariable %}</code>, 
               <code>{% templatetag openvariable %} last_name {% templatetag closevariable %}</code>, 
               <code>{% templatetag openvariable %} birthday {% templatetag closevariable %}</code>.
             </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-            <button type="submit" class="btn btn-primary">Создать рассылку</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create a newsletter</button>
           </div>
         </form>
       </div>
@@ -79,7 +79,6 @@
   
   <script>
     $(document).ready(function(){
-      // Инициализируем DateTimePicker
       $('#datetimepicker').datetimepicker({
         format: 'YYYY-MM-DD HH:mm:ss'
       });
@@ -93,17 +92,17 @@
           success: function(data){
             if(data.status === "ok"){
               $('#campaignResult').removeClass('alert-danger').addClass('alert-success')
-                .text("Рассылка создана! ID: " + data.campaign_id).show();
+                .text("The mailing list has been created! ID: " + data.campaign_id).show();
               $('#campaignModal').modal('hide');
               $('#campaignForm')[0].reset();
             } else {
               $('#campaignResult').removeClass('alert-success').addClass('alert-danger')
-                .text("Ошибка: " + JSON.stringify(data.errors)).show();
+                .text("Error: " + JSON.stringify(data.errors)).show();
             }
           },
           error: function(){
             $('#campaignResult').removeClass('alert-success').addClass('alert-danger')
-              .text("Ошибка при отправке запроса.").show();
+              .text("Error when sending a request.").show();
           }
         });
       });

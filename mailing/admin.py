@@ -4,7 +4,7 @@ from mailing.models import EmailCampaign, EmailLog
 
 class EmailCampaignAdmin(admin.ModelAdmin):
     """
-    Административный класс для EmailCampaign
+    Administrative classroom for EmailCampaign
     """
     list_display = ('id', 'subject', 'scheduled_time', 'is_sent', 'created_at')
     list_filter = ('is_sent', 'created_at')
@@ -12,7 +12,7 @@ class EmailCampaignAdmin(admin.ModelAdmin):
 
 class EmailLogAdmin(admin.ModelAdmin):
     """
-    Отображает информацию о каждом открытии письма
+    Displays information about each email opening
     """
     list_display = ('id', 'campaign', 'subscriber_email', 'opened', 'open_time')
     list_filter = ('opened', 'open_time')

@@ -4,8 +4,8 @@ from subscribers.models import Subscriber
 
 class SubscriberAdmin(admin.ModelAdmin):
     """
-    Административный класс для Subscriber
-    Позволяет удобно управлять списком подписчиков
+    Administrative class for Subscriber
+    Allows you to conveniently manage the list of subscribers
     """
     list_display = ('id', 'first_name', 'last_name', 'email', 'birthday')
     search_fields = ('first_name', 'last_name', 'email')
