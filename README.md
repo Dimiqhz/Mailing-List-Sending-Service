@@ -87,6 +87,6 @@ Access your app at http://127.0.0.1:8000/
 Django built-in validation is complemented by the Bleach library for enhanced XSS protection.
 SMTP setup is recommended for production-level email sending.
 
-##📌 Notes
+## 📌 Notes
 SQLite is used by default for simplicity. Consider migrating to PostgreSQL or MySQL in production.
 Basic Bootstrap styling included; customize the UI for production environments.
