@@ -2,6 +2,7 @@
 
 This project is a mailing-list sending service built using Python 2.7, Django 1.9.9, following the MVC architectural pattern. It provides functionality to manage subscribers, create email campaigns, track email activity, and handle subscriptions and unsubscriptions.
 
+(The project was performed as a test task)
 ---
 
 ## 📌 Features
