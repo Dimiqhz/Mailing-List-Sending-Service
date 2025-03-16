@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Website basic settings
 DEFAULT_FROM_EMAIL = 'noreply@test.com'
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'Europe/Moscow' # Specify your Timezone
 USE_TZ = True
 
 # Django basic settings
